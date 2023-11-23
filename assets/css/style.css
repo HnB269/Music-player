@@ -1,0 +1,333 @@
+:root {
+    --primary-color: #1DB954;
+    --text-color: #333;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+body {
+    background-color: #ebebeb;
+}
+
+html {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.player {
+    position: relative;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.player .icon-pause {
+    display: none;
+}
+
+.player.playing .icon-pause {
+    display: inline-block;
+}
+
+.player.playing .icon-play {
+    display: none;
+}
+
+.player .fa-volume-up {
+    display: inline-block;
+}
+
+.player .fa-volume-mute {
+    display: none;
+}
+
+.dashboard {
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 16px 16px 14px;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 480px;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+header h4 {
+    color: var(--primary-color);
+    font-size: 12px;
+    width: 100%;
+}
+
+header i {
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+header h2 {
+    color: var(--text-color);
+    font-size: 20px;
+}
+
+/* TEXT-SCROLL */
+#scroll-container {
+    /* Ẩn nội dung vượt quá kích thước của khung */
+    overflow: hidden;
+    /* Độ rộng của khung cuộn */
+    width: 80%;
+    margin-left: 10%;
+}
+
+#scroll-text {
+    /* Ngăn chữ xuống dòng */
+    white-space: nowrap;
+    /* Sử dụng animation */
+    animation: scrollText 8s linear infinite;
+}
+
+@keyframes scrollText {
+    0% {
+        /* Bắt đầu từ phía bên phải */
+        transform: translateX(100%);       
+    }
+
+    100% {
+        /* Di chuyển sang bên trái */
+        transform: translateX(-100%);        
+    }
+}
+
+/* CD */
+.cd {
+    display: flex;
+    margin: auto;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.cd-thumb {
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 50%;
+    background-color: #333;
+    background-size: cover;
+    margin: auto;
+}
+
+/* CONTROL */
+.control {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 18px 0 8px 0;
+}
+
+.control .btn {
+    color: #666;
+    padding: 18px;
+    font-size: 18px;
+}
+
+.control .btn.active {
+    color: var(--primary-color);
+}
+
+.control .btn-toggle-play {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    font-size: 24px;
+    color: #424242;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+}
+
+.progress {
+    width: 100%;
+    -webkit-appearance: none;
+    height: 13px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 13px;
+    height: 13px;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 3.5px solid #1DB954;
+    box-shadow: -407px 0 0 400px #38E54D;
+}
+
+/* VOLUME-CONTROL */
+[class="volume-range"] {
+    margin: 0;
+    padding: 0;
+    width: 100px;
+    height: 1.5em;
+    background:transparent;
+    outline: none;
+}
+
+/* Cần chỉnh sửa */
+[class="volume-range"],
+[class="volume-range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+
+[class="volume-range"]::-webkit-slider-thumb {
+    box-sizing: border-box;
+    border: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ebebeb;
+    border: 3.5px solid #38E54D;
+}
+
+[class="volume-range"]::-moz-range-thumb {
+    box-sizing: border-box;
+    border: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.player .volume-control {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.player .volume-control .volume-panel {
+    position: relative;
+    width: 0px;
+    transition: width 0.2s;
+    overflow: hidden;
+}
+
+.player .volume-control .volume-panel .input-div {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 100px;
+    height: 3px;
+}
+
+.player .volume-control .volume-panel .input-div .volume-input-div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #424242;
+}
+
+.player .volume-control .volume-panel .input-div .volume-input-div input {
+    position: absolute;
+    top: -8.5px;
+    cursor: pointer;
+}
+
+.player .volume-control .volume-panel .input-div .volume-input-div .volume-progress {
+    background-color: #38E54D;
+    width: 100px;
+    height: 100%;
+    margin-top: 6px;
+}
+
+.player .volume-control .volume-btn {
+    margin-top: 12px;
+    margin-right: 12px;
+    width: 100%;
+    max-width: 12px;
+    margin-left: 12px;
+    color: #666;
+}
+
+/* TIME-COUNTER */
+.player .time-display .audio-duration {
+    float: right;
+}
+
+/* PLAYLIST */
+.playlist {
+    margin-top: 472px;
+    padding: 12px;
+}
+
+.song {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    background-color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    height: 88px;
+}
+
+.song.active {
+    background-color: var(--primary-color);
+}
+
+.song:active {
+    opacity: 0.8;
+}
+
+.song.active .option,
+.song.active .author,
+.song.active .title {
+    color: #fff;
+}
+
+
+.song .thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-size: cover;
+    margin: 0 8px;
+}
+
+.song .body {
+    flex: 1;
+    padding: 0 16px;
+}
+
+.song .title {
+    font-size: 18px;
+    color: var(--text-color);
+}
+
+.song .author {
+    font-size: 12px;
+    color: #999;
+    padding-top: 4px;
+}
+
+.song .option {
+    padding: 16px 8px;
+    color: #999;
+    font-size: 18px;
+}
