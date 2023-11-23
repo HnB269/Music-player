@@ -282,7 +282,6 @@
                         const progressPercent = Math.floor((audio.currentTime / audio.duration) * 100);
                         progress.value = progressPercent;
                     }
-
                     //Xử lý bộ đếm của bài hát
                     var currentHours = Math.floor(audio.currentTime / 3600)
                     var currentMinutes = Math.floor(audio.currentTime / 60 % 60)
@@ -309,9 +308,11 @@
 
                         audio_duration.textContent = `${hours ? hours + ':' : ''}${minutes}:${seconds >= 10 ? seconds : '0' + seconds}`
 
-                        clearInterval(i)
+                        if (audio.currentTime >= audio.duration) {
+                            clearInterval(i)
+                        }
                     }
-                })
+                });
 
                 //Xử lý khi tua bài hát
                 progress.addEventListener('input', function() {
