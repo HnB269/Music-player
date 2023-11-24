@@ -61,12 +61,21 @@ header {
     margin-bottom: 10px;
 }
 
+/* DARKMODE */
 header h4 {
     color: var(--primary-color);
     font-size: 12px;
     width: 100%;
 }
 
+.bi-brightness-high-fill {
+    color: #FFCC00;
+}
+
+.bi-moon {
+    color: #67bfe2;
+}
+/* //////// */
 header i {
     font-size: 20px;
     cursor: pointer;
